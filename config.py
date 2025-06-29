@@ -6,7 +6,7 @@ env_vars = {
   #Get For @BotFather
   "BOT_TOKEN": "8086700219:AAFANCbRZqMAzNe3vwWLkzKiPhdbW2SCRXE",
   # Get For tembo.io
-  "DATABASE_URL_PRIMARY": "postgresql://neondb_owner:npg_NoDFHanE76qR@ep-twilight-fire-a80mx792-pooler.eastus2.azure.neon.tech/neondb?sslmode=require",
+  "DATABASE_URL_PRIMARY": "mongodb+srv://thakareankit46:<db_password>@manga2botcluster.8imgiug.mongodb.net/?retryWrites=true&w=majority&appName=Manga2botcluster",
   # Logs Channel Username Without @
   "CACHE_CHANNEL": "Dump2075",
   # Force Subs Channel username without @
