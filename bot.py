@@ -28,8 +28,8 @@ from tools.aqueue import AQueue
 from tools.flood import retry_on_flood
 
 
-OWNER_ID = 5543390445 # put owner id in number directly 
-auth_users = [5543390445, 5164955785, 5891177226, 7827086839, 6975428639] # eg: [83528911,836289,9362891] # eg: [83528911,836289,9362891]
+OWNER_ID = 8093654914 # put owner id in number directly 
+auth_users = [8093654914, 5455664988, 7689650499, 7827086839] # eg: [83528911,836289,9362891] # eg: [83528911,836289,9362891]
 AUTH_USERS = auth_users + [OWNER_ID]
 
 
@@ -249,7 +249,7 @@ async def on_subs(client: Client, message: Message):
 @bot.on_message(filters=filters.regex(r'^/cancel ([^ ]+)$'))
 async def on_cancel_command(client: Client, message: Message):
     if message.from_user.id not in AUTH_USERS:
-        return await message.reply_text("<blockquote><b>I only work for @Manga_Campus, Ask my senpai to use me @aaru_2075.</b></blockquote>")
+        return await message.reply_text("<blockquote><b>I only work for @Manga_sect, Ask my senpai to use me @letschatbro.</b></blockquote>")
     db = DB()
     sub = await db.get(Subscription, (message.matches[0].group(1), str(message.from_user.id)))
     if not sub:
@@ -261,7 +261,7 @@ async def on_cancel_command(client: Client, message: Message):
 @bot.on_message(filters=filters.command(['options']))
 async def on_options_command(client: Client, message: Message):
     if message.from_user.id not in AUTH_USERS:
-        return await message.reply_text("<blockquote><b>I only work for @Manga_Campus, Ask my senpai to use me @aaru_2075.</b></blockquote>")
+        return await message.reply_text("<blockquote><b>I only work for @Manga_sect, Ask my senpai to use me @letschatbro.</b></blockquote>")
     db = DB()
     user_options = await db.get(MangaOutput, str(message.from_user.id))
     user_options = user_options.output if user_options else (1 << 30) - 1
@@ -272,14 +272,14 @@ async def on_options_command(client: Client, message: Message):
 @bot.on_message(filters=filters.regex(r'^/'))
 async def on_unknown_command(client: Client, message: Message):
     if message.from_user.id not in AUTH_USERS:
-        return await message.reply_text("<blockquote><b>I only work for @Manga_Campus, Ask my senpai to use me @aaru_2075.</b></blockquote>")
+        return await message.reply_text("<blockquote><b>I only work for @Manga_sect, Ask my senpai to use me @letschatbro.</b></blockquote>")
     await message.reply("Unknown command")
 
 
 @bot.on_message(filters=filters.text)
 async def on_message(client, message: Message):
     if message.from_user.id not in AUTH_USERS:
-        return await message.reply_text("<blockquote><b>I only work for @Manga_Campus, Ask my senpai to use me @aaru_2075.</b></blockquote>")
+        return await message.reply_text("<blockquote><b>I only work for @Manga_sect, Ask my senpai to use me @letschatbro.</b></blockquote>")
     language_query[f"lang_None_{hash(message.text)}"] = (None, message.text)
     for language in plugin_dicts.keys():
         language_query[f"lang_{language}_{hash(message.text)}"] = (language, message.text)
